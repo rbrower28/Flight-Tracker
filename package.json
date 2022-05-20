@@ -1,7 +1,7 @@
 {
-    "name": "outside",
+    "name": "celebrity-tracker",
     "version": "1.0.0",
-    "description": "Boilerplate for WDD 330 SleepOutside project",
+    "description": "Boilerplate for WDD 330 celebrity-tracker project",
     "main": "main.js",
     "scripts": {
       "start": "snowpack dev",
