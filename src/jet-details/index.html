@@ -1,67 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Track a Jet ✈️</title>
-  <link rel="stylesheet" href="../css/normalize.css">
-  <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/medium.css">
-  <link rel="stylesheet" href="../css/small.css">
-</head>
-<body>
-
-<header>
-  <div id="logo-box">
-    <a href="../index.html">
-      <h3>Celebrity Jet Tracker</h3>
-      <img src="../images/jet-logo.png" alt="A logo of a plane">
-    </a>
-  </div>
-  <div id="header-links">
-    <a href="#map">Map</a>
-    <a href="#flights">Flights</a>
-  </div>
-</header>
-
-<main id="jet-details">
-
-  <h1>Personal jet - <span id="celeb-name">Elon Musk</span></h1>
-  <h3>Tracking number: <span id="celeb-id">5555555</span></h3>
-
-  <div class="main-content" id="map">
-    <section class="map-box">
-      <h2>Last Flight:</h2>
-      <div class="map">
-        <span>Embed map here</span>
-        <!-- dynamic map of all planes goes here -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Track a Jet ✈️</title>
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/medium.css" />
+    <link rel="stylesheet" href="../css/small.css" />
+  </head>
+  <body>
+    <header>
+      <div id="logo-box">
+        <a href="../index.html">
+          <h3>Celebrity Jet Tracker</h3>
+          <img src="../images/jet-logo.png" alt="A logo of a plane" />
+        </a>
       </div>
-    </section>
-
-    <section class="flights-box" id="flights">
-      <h2>Recent Flights:</h2>
-      <div class="flights">
-        <ul>
-          <!-- dynamic links to each plane go here -->
-          <li>template flights here</li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
+      <div id="header-links">
+        <a href="#map">Map</a>
+        <a href="#flights">Flights</a>
       </div>
-    </section>
-  </div>
+    </header>
 
-</main>
+    <main id="jet-details">
+      <h1>Personal jet - <span id="celeb-name">Elon Musk</span></h1>
+      <h3>Tracking number: <span id="celeb-id">5555555</span></h3>
 
-<footer>
-  <p>Made in 2022</p>
-</footer>
+      <div class="main-content" id="map">
+        <section class="map-box">
+          <h2>Last Flight:</h2>
+          <div class="map">
+            <span>Embed map here</span>
+            <!-- dynamic map of all planes goes here -->
+          </div>
+        </section>
 
-<script src="../js/jet-details.js"></script>
+        <section class="flights-box" id="flights">
+          <h2>Recent Flights:</h2>
+          <div class="flights">
+            <ul>
+              <!-- dynamic links to each plane go here -->
+              <li>template flights here</li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
 
-</body>
+    <footer>
+      <p>Made in 2022</p>
+    </footer>
+
+    <script src="../js/jet-details.js"></script>
+  </body>
 </html>

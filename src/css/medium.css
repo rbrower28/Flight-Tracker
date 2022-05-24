@@ -1,6 +1,4 @@
-
 @media only screen and (max-width: 60rem) {
-
   .main-content {
     flex-direction: column;
     align-items: center;
@@ -10,5 +8,4 @@
     width: 100%;
     max-width: 40rem;
   }
-
 }
