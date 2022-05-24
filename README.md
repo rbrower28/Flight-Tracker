@@ -13,3 +13,4 @@ To setup the project in your own environment, please follow the following steps:
 3. Please make sure you have npm installed in your environment.
 4. Please go into the cloned repo in your command terminal and run 'npm install'.
 5. After the installation finishes, please try running 'npm run start'. If the website shows up correctly, your environment should be correctly set up.
+6. If you would like, please also try running 'npm run lint' and 'npm run format' to make sure those scripts also work.
