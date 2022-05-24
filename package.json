@@ -11,8 +11,25 @@
       "test": "jest",
       "babel": "babel src -d dist"
     },
-    "author": "Shane Thompson",
-    "license": "ISC",
+    "contributors": [
+      {
+        "name": "Ryan Brower",
+        "email": "",
+        "url": "https://github.com/rbrower28"
+      },
+      {
+        "name": "Neil Martin",
+        "email": "",
+        "url": "https://github.com/NeilMart"
+      },
+      {
+      "name": "Jared Giroux",
+      "email": "jmattgiroux@gmail.com",
+      "url": "https://github.com/jmattgiroux"
+    }
+  
+  ],
+    "license": "MIT",
     "devDependencies": {
       "@babel/cli": "^7.12.8",
       "@babel/core": "^7.12.3",
