@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/medium.css" />
     <link rel="stylesheet" href="css/small.css" />
+    <!-- Template -->
+    <template id="person-data">
+      <li class="jet">
+        <img src="" alt="Image of ">
+        <a href="jet-details/index.html?jet=">
+          <h4 class="item-name"></h4>
+          <p class="item-make"><p>
+          <p class="item-id"><p>
+        </a>
+      </li>
+    </template>
+    <!-- -->
   </head>
   <body>
     <header>
@@ -33,20 +45,16 @@
           <div class="map">
             <span>Embed map here</span>
             <!-- dynamic map of all planes goes here -->
+
+            <!-- -->
           </div>
         </section>
 
         <section class="jets-box" id="jets">
           <h2>Select a jet</h2>
           <div class="jets">
-            <ul>
+            <ul class="jet-list">
               <!-- dynamic links to each plane go here -->
-              <li>template jets here</li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
             </ul>
           </div>
         </section>
@@ -57,6 +65,6 @@
       <p>Made in 2022</p>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js" type="module"></script>
   </body>
 </html>
