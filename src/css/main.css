@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans&display=swap");
 
 /* ========= General Styling ========= */
 
-header, footer {
+header,
+footer {
   background-color: rgb(202, 223, 239);
   display: flex;
   flex-direction: row;
@@ -16,12 +16,19 @@ main {
   padding: 2rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Merriweather', serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Merriweather", serif;
 }
 
-p, li, a {
-  font-family: 'Open Sans', sans-serif
+p,
+li,
+a {
+  font-family: "Open Sans", sans-serif;
 }
 
 a {
@@ -49,7 +56,7 @@ header a,
 }
 
 #header-links a {
-  padding: .5rem 0;
+  padding: 0.5rem 0;
   margin: 0 1rem;
 }
 
@@ -108,8 +115,8 @@ section {
 
 .jets li,
 .flights li {
-  margin: .5rem;
-  padding: .5rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
   list-style-type: none;
   min-height: 4rem;
   border: 1px dashed rgb(202, 223, 239);

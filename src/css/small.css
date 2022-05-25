@@ -1,7 +1,6 @@
-
 @media only screen and (max-width: 35rem) {
-
-  header, footer {
+  header,
+  footer {
     flex-direction: column;
   }
 
@@ -12,5 +11,4 @@
   #header-links {
     margin: 0;
   }
-
 }
