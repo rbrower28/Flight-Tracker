@@ -11,10 +11,60 @@ let externalServices = new ExternalServices;
 
 describe('ExternalServices', function () {
   describe('getFlightDataByModeSCode()', function () {
+    it('Requesting A835AF (Elon Musk) flight information.', async function () {
+      let data = await externalServices.getFlightDataByModeSCode('A835AF');
+      console.log(data);
+      assert.ok(data, `data for flight A835AF wasn't available.`);
+    });
+    it('Requesting A7E0DB (Kanye West) flight information.', async function () {
+      let data = await externalServices.getFlightDataByModeSCode('A7E0DB');
+      console.log(data);
+      assert.ok(data, `data for flight A7E0DB wasn't available.`);
+    });
+    it('Requesting A6D9E0 (Oprah Winfrey) flight information.', async function () {
+      let data = await externalServices.getFlightDataByModeSCode('A6D9E0');
+      console.log(data);
+      assert.ok(data, `data for flight A6D9E0 wasn't available.`);
+    });
+    it('Requesting A21FE6 (Michael Jordan) flight information.', async function () {
+      let data = await externalServices.getFlightDataByModeSCode('A21FE6');
+      console.log(data);
+      assert.ok(data, `data for flight A21FE6 wasn't available.`);
+    });
     it('Requesting AC39D6 (Bill Gates) flight information.', async function () {
       let data = await externalServices.getFlightDataByModeSCode('AC39D6');
       console.log(data);
       assert.ok(data, `data for flight AC39D6 wasn't available.`);
+    });
+    it('Requesting A55B7F (Beyonce Knowles) flight information.', async function () {
+      let data = await externalServices.getFlightDataByModeSCode('A55B7F');
+      console.log(data);
+      assert.ok(data, `data for flight A55B7F wasn't available.`);
+    });
+    it('Requesting A2AA92 (Jeff Bezos 1) flight information.', async function () {
+      let data = await externalServices.getFlightDataByModeSCode('A2AA92');
+      console.log(data);
+      assert.ok(data, `data for flight A2AA92 wasn't available.`);
+    });
+    it('Requesting AA3908 (Jeff Bezos 2) flight information.', async function () {
+      let data = await externalServices.getFlightDataByModeSCode('AA3908');
+      console.log(data);
+      assert.ok(data, `data for flight AA3908 wasn't available.`);
+    });
+    it('Requesting AC64C6 (Taylor Swift) flight information.', async function () {
+      let data = await externalServices.getFlightDataByModeSCode('AC64C6');
+      console.log(data);
+      assert.ok(data, `data for flight AC64C6 wasn't available.`);
+    });
+    it('Requesting AAE5EB (Mark Cuban) flight information.', async function () {
+      let data = await externalServices.getFlightDataByModeSCode('AAE5EB');
+      console.log(data);
+      assert.ok(data, `data for flight AAE5EB wasn't available.`);
+    });
+    it('Requesting A0F9E7 (Jim Carrey) flight information.', async function () {
+      let data = await externalServices.getFlightDataByModeSCode('A0F9E7');
+      console.log(data);
+      assert.ok(data, `data for flight A0F9E7 wasn't available.`);
     });
   });
 });
