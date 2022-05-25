@@ -3,11 +3,11 @@ module.exports = {
     // ['@snowpack/plugin-sass' ],
   ],
   mount: {
-    src: "/",
+    src: '/',
   },
   buildOptions: {
-    out: "build",
-    baseUrl: "/celebrity-tracker/build/",
+    out: 'build',
+    baseUrl: '/celebrity-tracker/build/',
     clean: true,
     htmlFragments: true,
   },
@@ -15,7 +15,7 @@ module.exports = {
     optimize: {
       // 'bundle': true,
       minify: true,
-      target: "es2015",
+      target: 'es2015',
     },
   },
 };
