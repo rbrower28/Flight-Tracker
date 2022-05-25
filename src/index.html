@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/medium.css" />
     <link rel="stylesheet" href="css/small.css" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   </head>
   <body>
     <header>
@@ -27,12 +28,13 @@
     <main>
       <h1>Find Your Favorite Celebrity's Private Jet</h1>
 
-      <div class="main-content" id="map">
-        <section class="map-box">
+      <div class="main-content">
+        <section class="map-box" id="map">
           <h2>See all jets</h2>
           <div class="map">
-            <span>Embed map here</span>
-            <!-- dynamic map of all planes goes here -->
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+                    defer>
+            </script>
           </div>
         </section>
 
@@ -58,5 +60,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/map-gen.ts"></script>
   </body>
 </html>
