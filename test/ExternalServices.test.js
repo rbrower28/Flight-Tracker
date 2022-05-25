@@ -16,35 +16,5 @@ describe('ExternalServices', function () {
       console.log(data);
       assert.ok(data, `data for flight AC39D6 wasn't available.`);
     });
-    it('Requesting AC39D6 (Bill Gates) flight information.', async function () {
-      let data = await externalServices.getFlightDataByModeSCode('AC39D6');
-      console.log(data);
-      assert.ok(data, `data for flight AC39D6 wasn't available.`);
-    });
-    it('Requesting AC39D6 (Bill Gates) flight information.', async function () {
-      let data = await externalServices.getFlightDataByModeSCode('AC39D6');
-      console.log(data);
-      assert.ok(data, `data for flight AC39D6 wasn't available.`);
-    });
-    it('Requesting AC39D6 (Bill Gates) flight information.', async function () {
-      let data = await externalServices.getFlightDataByModeSCode('AC39D6');
-      console.log(data);
-      assert.ok(data, `data for flight AC39D6 wasn't available.`);
-    });
-    it('Requesting AC39D6 (Bill Gates) flight information.', async function () {
-      let data = await externalServices.getFlightDataByModeSCode('AC39D6');
-      console.log(data);
-      assert.ok(data, `data for flight AC39D6 wasn't available.`);
-    });
-    it('Requesting AC39D6 (Bill Gates) flight information.', async function () {
-      let data = await externalServices.getFlightDataByModeSCode('AC39D6');
-      console.log(data);
-      assert.ok(data, `data for flight AC39D6 wasn't available.`);
-    });
-    it('Requesting AC39D6 (Bill Gates) flight information.', async function () {
-      let data = await externalServices.getFlightDataByModeSCode('AC39D6');
-      console.log(data);
-      assert.ok(data, `data for flight AC39D6 wasn't available.`);
-    });
   });
 });
