@@ -1,10 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans&display=swap");
 
 /* ========= General Styling ========= */
- .map {
-  height: 100%;
-}
-
 
 header,
 footer {
@@ -100,8 +96,8 @@ section {
 .map {
   padding: 1rem;
   min-height: 30rem;
-  height: 100%;
-  border: 1px dashed #999;
+  height: 400px;
+  /* border: 1px dashed #999; */
 }
 
 /* ========= Jet List Styling ========= */

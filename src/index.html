@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Celebrity Jet Tracker ✈️</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/css/ol.css" type="text/css">
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/medium.css" />
     <link rel="stylesheet" href="css/small.css" />
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   </head>
   <body>
     <header>
@@ -29,13 +29,9 @@
       <h1>Find Your Favorite Celebrity's Private Jet</h1>
 
       <div class="main-content">
-        <section class="map-box" id="map">
+        <section class="map-box" id="map-box">
           <h2>See all jets</h2>
-          <div class="map">
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
-                    defer>
-            </script>
-          </div>
+          <div class="map" id="map"></div>
         </section>
 
         <section class="jets-box" id="jets">
@@ -60,6 +56,7 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/map-gen.ts"></script>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
+    <script src="js/mapData.js"></script>
   </body>
 </html>
