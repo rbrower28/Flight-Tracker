@@ -126,6 +126,17 @@ section {
   border: 1px solid rgb(112, 170, 214);
 }
 
+.jets img {
+  max-height: 100px; 
+}
+
+li.jet {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
 /* ========= Jet Information Styling ========= */
 
 #jet-details h3 {
