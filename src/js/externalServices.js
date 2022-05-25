@@ -3,3 +3,11 @@
 // OpenSky REST API source: https://openskynetwork.github.io/opensky-api/rest.html
 
 const baseURL = 'https://opensky-network.org/api';
+
+export default class ExternalServices {
+    
+    getData(){
+        return fetch(baseURL + '/states/all?time=1458564121&icao24=3c6444')
+    }
+
+}
