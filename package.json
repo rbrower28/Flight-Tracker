@@ -8,9 +8,10 @@
     "build": "snowpack build",
     "lint": "eslint *.js src/**/*.js",
     "format": "prettier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css}\"",
-    "test": "jest",
+    "test": "mocha",
     "babel": "babel src -d dist"
   },
+  "type": "module",
   "contributors": [
     {
       "name": "Ryan Brower",
@@ -38,6 +39,8 @@
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",
     "jest": "^26.6.3",
+    "jest-esm-transformer": "^1.0.0",
+    "mocha": "^10.0.0",
     "prettier": "^2.1.2",
     "snowpack": "^2.18.0"
   },
@@ -54,6 +57,7 @@
     "last 3 safari versions"
   ],
   "dependencies": {
+    "assert": "^2.0.0",
     "node-fetch": "^3.2.4"
   }
 }
