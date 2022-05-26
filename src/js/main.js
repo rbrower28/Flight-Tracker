@@ -7,6 +7,7 @@
 import ExternalSource from "./externalSource.js";
 import PlaneList from "./PlaneList.js";
 import { MapRenderer } from "./mapData.js";
+import getFlightDataByModeSCode from "./ExternalServices.js";
 
 let myMap = new MapRenderer("map", -114.742, 44.0682, 5);
 myMap.addJet("N1234567", -114.742, 44.0682);
@@ -18,3 +19,5 @@ const listElement = document.querySelector(".jet-list");
 const jetList = new PlaneList(source, listElement);
 
 jetList.init();
+
+document.getElementById("searchButton").addEventListener("click", getFlightDataByModeSCode("ac98ac"));
