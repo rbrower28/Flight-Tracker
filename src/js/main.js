@@ -21,11 +21,13 @@ const jetList = new PlaneList(source, listElement);
 jetList.init();
 
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/formdata_event
-document.getElementById("searchForm").addEventListener("submit", (event) => {
+document.getElementById("searchForm").addEventListener("submit", async (event) => {
     event.preventDefault();
 
     let modeSCode = document.getElementById("modeSCode").value;
 
-    getFlightDataByModeSCode(modeSCode);
+    let flightData = await getFlightDataByModeSCode(modeSCode);
+
+    myMap.addJet(flightData.states[0][0], flightData.states[0][5], flightData.states[0][6]);
 
 });
