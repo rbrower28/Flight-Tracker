@@ -20,4 +20,12 @@ const jetList = new PlaneList(source, listElement);
 
 jetList.init();
 
-document.getElementById("searchButton").addEventListener("click", getFlightDataByModeSCode("ac98ac"));
+// https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/formdata_event
+document.getElementById("searchForm").addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    let modeSCode = document.getElementById("modeSCode").value;
+
+    getFlightDataByModeSCode(modeSCode);
+
+});
