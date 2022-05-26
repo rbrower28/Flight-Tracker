@@ -10,6 +10,18 @@
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/medium.css" />
     <link rel="stylesheet" href="css/small.css" />
+    <!-- Template -->
+    <template id="person-data">
+      <li class="jet">
+        <img src="" alt="Image of ">
+        <a href="jet-details/index.html?jet=">
+          <h4 class="item-name"></h4>
+          <p class="item-make"><p>
+          <p class="item-id"><p>
+        </a>
+      </li>
+    </template>
+    <!-- -->
   </head>
   <body>
     <header>
@@ -31,20 +43,15 @@
       <div class="main-content">
         <section class="map-box" id="map-box">
           <h2>See all jets</h2>
+          
           <div class="map" id="map"></div>
         </section>
 
         <section class="jets-box" id="jets">
           <h2>Select a jet</h2>
           <div class="jets">
-            <ul>
+            <ul class="jet-list">
               <!-- dynamic links to each plane go here -->
-              <li>template jets here</li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
             </ul>
           </div>
         </section>
@@ -54,7 +61,7 @@
     <footer>
       <p>Made in 2022</p>
     </footer>
-
+  
     <script type="module" src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
   </body>
