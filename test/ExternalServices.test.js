@@ -16,10 +16,10 @@ import getFlightDataByModeSCode from "../src/js/ExternalServices.js";
 
 describe("ExternalServices", function () {
   describe("getFlightDataByModeSCode()", function () {
-    it("Requesting c0523f (Random but specific) flight information.", async function () {
-      let data = await getFlightDataByModeSCode("c0523f");
+    it("Requesting ac98ac (Random but specific) flight information.", async function () {
+      let data = await getFlightDataByModeSCode("ac98ac");
       console.log(data);
-      assert.ok(data, "data for flight c0523f wasn't available.");
+      assert.ok(data, "data for flight ac98ac wasn't available.");
     });
   });
 });
