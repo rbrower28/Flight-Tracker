@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Celebrity Jet Tracker ✈️</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/css/ol.css" type="text/css">
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/medium.css" />
@@ -39,15 +40,11 @@
     <main>
       <h1>Find Your Favorite Celebrity's Private Jet</h1>
 
-      <div class="main-content" id="map">
-        <section class="map-box">
+      <div class="main-content">
+        <section class="map-box" id="map-box">
           <h2>See all jets</h2>
-          <div class="map">
-            <span>Embed map here</span>
-            <!-- dynamic map of all planes goes here -->
-
-            <!-- -->
-          </div>
+          
+          <div class="map" id="map"></div>
         </section>
 
         <section class="jets-box" id="jets">
@@ -64,7 +61,8 @@
     <footer>
       <p>Made in 2022</p>
     </footer>
-
-    <script src="js/main.js" type="module"></script>
+  
+    <script type="module" src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
   </body>
 </html>

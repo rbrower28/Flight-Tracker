@@ -35,6 +35,7 @@
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@snowpack/plugin-sass": "^1.1.2",
+    "@types/googlemaps": "^3.43.3",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",
