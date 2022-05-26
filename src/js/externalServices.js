@@ -8,7 +8,7 @@
 // So when you see Mode S Code for a flight here: https://opensky-network.org/network/explorer
 // That's what's going into the function as a parameter.
 
-import fetch from "node-fetch";
+import fetch from "node-fetch"; //eslint-disable-line
 const baseURL = "https://opensky-network.org/api";
 
 export default async function getFlightDataByModeSCode(modeSCode) {
