@@ -16,6 +16,8 @@ import getFlightDataByModeSCode from "../src/js/ExternalServices.js";
 
 describe("ExternalServices", function () {
   describe("getFlightDataByModeSCode()", function () {
+    // Before running this test, it's necessary to find a current flight's Mode S Code by going to here:
+    // https://opensky-network.org/network/explorer
     it("Requesting ac98ac (Random but specific) flight information.", async function () {
       let data = await getFlightDataByModeSCode("ac98ac");
       console.log(data);
