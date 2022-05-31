@@ -11,8 +11,22 @@
 import fetch from "node-fetch"; //eslint-disable-line
 const baseURL = "https://opensky-network.org/api";
 
-export default async function getFlightDataByModeSCode(modeSCode) {
+export async function getFlightDataByModeSCode(modeSCode) {
   let data = await fetch(baseURL + "/states/all?icao24=" + modeSCode);
+
+  if (data.status == 200) {
+    let json = await data.json();
+    return json;
+  }
+
+  throw new Error(data.status);
+}
+
+// Fetches all of the flights that are in the air at this exact moment in time.
+// It would be nice to trim down the size of the response, but I couldn't find a
+// way to do so within the OpenSky API
+export async function getRandomListOfFlights() {
+  let data = await fetch(baseURL + "/states/all");
 
   if (data.status == 200) {
     let json = await data.json();

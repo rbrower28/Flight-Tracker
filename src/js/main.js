@@ -1,25 +1,11 @@
 "use strict";
 
-// This is just a dummy file until someone else in the group starts actually creating a main.js file or the equivalent.
-// If the main file ends up not being this one, then be sure to change line 5 of package.json from
-// "main": "main.js", to instead use the js file you want.
-
 // import ExternalSource from "./externalSource.js";
 // import PlaneList from "./PlaneList.js";
-import { MapRenderer, Jet, Jet2 } from "./mapData.js";
-import getFlightDataByModeSCode from "./externalServices.js";
+import { MapRenderer, BulkJet, Jet } from "./mapData.js";
+import { getFlightDataByModeSCode, getRandomListOfFlights } from "./externalServices.js";
 
 let myMap = new MapRenderer("map", -114.742, 44.0682, 5);
-
-// this uses the new code
-let jet1 = new Jet("N1234567", -114.742, 44.0682, false); // Same info as line below
-// myMap.addJetOld("N1234567", -114.742, 44.0682);
-myMap.addJetNew(jet1);
-// myMap.removeJetNew(jet1);
-
-// This uses the old code
-myMap.addJet("N1234567", -116.742, 49.0682);
-// myMap.removeJet('N1234567');
 
 // const source = new ExternalSource();
 // const listElement = document.querySelector(".jet-list");
@@ -37,15 +23,15 @@ function loadSavedFlights() {
     flights.forEach(async (modeSCode) => {
       let flightData = await getFlightDataByModeSCode(modeSCode);
 
-      let jet2 = new Jet2(flightData, false);
+      let jet = new Jet(flightData, false);
 
-      myMap.addJetNew(jet2);
+      myMap.addJet(jet);
 
       // resource: https://www.techiedelight.com/add-item-html-list-javascript/
       let node = document.createElement("li");
       node.appendChild(
         document.createTextNode(
-          "Callsign: " + jet2.callsign + " Mode S Code: " + jet2.modeSCode
+          "Callsign: " + jet.callsign + " Mode S Code: " + jet.modeSCode
         )
       );
 
@@ -71,15 +57,15 @@ document
 
     let flightData = await getFlightDataByModeSCode(modeSCode);
 
-    let jet2 = new Jet2(flightData, false);
+    let jet = new Jet(flightData, false);
 
-    myMap.addJetNew(jet2);
+    myMap.addJet(jet);
 
     // resource: https://www.techiedelight.com/add-item-html-list-javascript/
     let node = document.createElement("li");
     node.appendChild(
       document.createTextNode(
-        "Callsign: " + jet2.callsign + " Mode S Code: " + jet2.modeSCode
+        "Callsign: " + jet.callsign + " Mode S Code: " + jet.modeSCode
       )
     );
 
@@ -93,3 +79,47 @@ document
   });
 
 loadSavedFlights();
+
+// random flights are generated each time the page loads
+window.addEventListener("load", async function() {
+  const loader = document.querySelector('#loader');
+  let randomFlights = [];
+
+  // This needs to be cleared every time the page loads - no sense in letting
+  // flights pile up if they aren't on the map
+  if (!(localStorage.getItem("randomFlights") === null)) {
+    this.localStorage.removeItem("randomFlights");
+  }
+
+  // spinner exists on the page only until the flights have loaded
+  loader.style.display = "block";
+  let flightData = await getRandomListOfFlights();
+  loader.style.display = "none";
+
+  // when generating random numbers, makes sure that we don't exceed the size of
+  // the array
+  let length = flightData.states.length;
+
+  // change the limit of i to change the number of flights that will be shown.
+  // in this case, there will be 15 flights loaded
+  for (let i = 0; i < 15; i++) {
+    let index = Math.floor(Math.random() * length);
+    let jet = new BulkJet(flightData.states[index], true);
+    myMap.addJet(jet);
+
+    // add each jet to the random jet list
+    let node = document.createElement("li");
+    node.appendChild(
+      document.createTextNode(
+        "Callsign: " + jet.callsign + " Mode S Code: " + jet.modeSCode
+      )
+    );
+    document.querySelector("#random-flights-list").appendChild(node);
+    randomFlights.push(jet.modeSCode);
+  }
+
+  // add the list of random jet modeSCodes to localStorage - storing the S Codes
+  // should make things a lot easier for whoever is updating the page every 30
+  // seconds
+  localStorage.setItem("randomFlights", JSON.stringify(randomFlights));
+});
