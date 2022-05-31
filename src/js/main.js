@@ -6,11 +6,18 @@
 
 import ExternalSource from "./externalSource.js";
 import PlaneList from "./PlaneList.js";
-import { MapRenderer } from "./mapData.js";
+import { MapRenderer, Jet } from "./mapData.js";
 import getFlightDataByModeSCode from "./ExternalServices.js";
 
 let myMap = new MapRenderer("map", -114.742, 44.0682, 5);
-myMap.addJet("N1234567", -114.742, 44.0682);
+
+// this uses the new code
+let jet1 = new Jet("N1234567", -114.742, 44.0682, false); // Same info as line below
+// myMap.addJetOld("N1234567", -114.742, 44.0682);
+myMap.addJetNew(jet1);
+// myMap.removeJetNew(jet1);
+
+// This uses the old code
 myMap.addJet("N1234567", -116.742, 49.0682);
 // myMap.removeJet('N1234567');
 
