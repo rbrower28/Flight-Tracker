@@ -6,7 +6,7 @@
 
 import ExternalSource from "./externalSource.js";
 import PlaneList from "./PlaneList.js";
-import { MapRenderer, Jet } from "./mapData.js";
+import { MapRenderer, Jet, Jet2 } from "./mapData.js";
 import getFlightDataByModeSCode from "./ExternalServices.js";
 
 let myMap = new MapRenderer("map", -114.742, 44.0682, 5);
@@ -37,9 +37,7 @@ document
 
     let flightData = await getFlightDataByModeSCode(modeSCode);
 
-    myMap.addJet(
-      flightData.states[0][0],
-      flightData.states[0][5],
-      flightData.states[0][6]
-    );
+    let jet2 = new Jet2(flightData, false);
+
+    myMap.addJetNew(jet2);
   });
