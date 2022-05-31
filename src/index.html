@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Celebrity Jet Tracker ✈️</title>
+    <title>Flight Tracker ✈️</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/css/ol.css"
@@ -33,7 +33,7 @@
     <header>
       <div id="logo-box">
         <a href="index.html">
-          <h3>Celebrity Jet Tracker</h3>
+          <h3>Flight Tracker</h3>
           <img src="images/jet-logo.png" alt="A logo of a plane" />
         </a>
       </div>
@@ -55,20 +55,22 @@
         <button id="searchButton">Search</button>
       </form>
 
-      <h1>Find Your Favorite Celebrity's Private Jet</h1>
-
       <div class="main-content">
         <section class="map-box" id="map-box">
-          <h2>See all jets</h2>
+          <h2>See All Flights</h2>
 
           <div class="map" id="map"></div>
         </section>
 
         <section class="jets-box" id="jets">
-          <h2>Select a jet</h2>
+          <h2>Your Flights</h2>
           <div class="jets">
-            <ul class="jet-list">
-              <!-- dynamic links to each plane go here -->
+            <ul id="user-flights-list">
+            </ul>
+          </div>
+          <h2>Random Flights</h2>
+          <div class="jets">
+            <ul id="random-flights-list">
             </ul>
           </div>
         </section>
