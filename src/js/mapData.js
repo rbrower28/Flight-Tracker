@@ -33,7 +33,6 @@ export class MapRenderer {
     });
   }
 
-
   addJet(jetName, long, lat) {
     // block below is map stuff, though the long and lat are where we'll put in our jet
     var iconFeature = new ol.Feature({
@@ -66,14 +65,18 @@ export class MapRenderer {
 
     var iconFeature = new ol.Feature({
       geometry: new ol.geom.Point(
-        ol.proj.transform([jet.longitude, jet.latitude], "EPSG:4326", "EPSG:3857")
+        ol.proj.transform(
+          [jet.longitude, jet.latitude],
+          "EPSG:4326",
+          "EPSG:3857"
+        )
       ),
       name: "Null",
     });
 
     // This is where we would change the style of the jet's icon
-    iconFeature.setStyle(this.iconStyle); //old 
-    // iconFeature.setStyle(this.iconStyle); //new 
+    iconFeature.setStyle(this.iconStyle); //old
+    // iconFeature.setStyle(this.iconStyle); //new
 
     // No clue what this does; I assume it's map stuff
     var vectorSource = new ol.source.Vector({
@@ -86,7 +89,7 @@ export class MapRenderer {
     });
 
     // nor even this; I assume it's map stuff
-    vectorLayer.set("name", jet.name);
+    vectorLayer.set("name", jet.callsign);
     this.map.addLayer(vectorLayer);
   }
 
@@ -103,7 +106,7 @@ export class MapRenderer {
   removeJetNew(jet) {
     var element = null;
     this.map.getLayers().forEach(function (el) {
-      if (el.get("name") === jet.name) {
+      if (el.get("name") === jet.callsign) {
         element = el;
       }
     });
@@ -113,10 +116,24 @@ export class MapRenderer {
 
 export class Jet {
   constructor(name, longitude, latitude, userTracked) {
-    this.name = name;
+    this.callsign = name;
     this.longitude = longitude;
     this.latitude = latitude;
     this.userTracked = userTracked;
+  }
+}
 
+// This one takes JSON data from the OpenSky API as a parameter for the constructor
+export class Jet2 {
+  constructor(flightData, userTracked) {
+    this.modeSCode = flightData.states[0][0];
+    this.callsign = flightData.states[0][1];
+    this.longitude = flightData.states[0][5];
+    this.latitude = flightData.states[0][6];
+    // uses Geostationary altitude (i.e. based on GPS)
+    this.altitude = flightData.states[0][13];
+    this.velocity = flightData.states[0][9];
+    this.heading = flightData.states[0][10];
+    this.userTracked = userTracked;
   }
 }

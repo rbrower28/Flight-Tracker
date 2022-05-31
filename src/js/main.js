@@ -4,10 +4,10 @@
 // If the main file ends up not being this one, then be sure to change line 5 of package.json from
 // "main": "main.js", to instead use the js file you want.
 
-import ExternalSource from "./externalSource.js";
-import PlaneList from "./PlaneList.js";
-import { MapRenderer, Jet } from "./mapData.js";
-import getFlightDataByModeSCode from "./ExternalServices.js";
+// import ExternalSource from "./externalSource.js";
+// import PlaneList from "./PlaneList.js";
+import { MapRenderer, Jet, Jet2 } from "./mapData.js";
+import getFlightDataByModeSCode from "./externalServices.js";
 
 let myMap = new MapRenderer("map", -114.742, 44.0682, 5);
 
@@ -21,11 +21,11 @@ myMap.addJetNew(jet1);
 myMap.addJet("N1234567", -116.742, 49.0682);
 // myMap.removeJet('N1234567');
 
-const source = new ExternalSource();
-const listElement = document.querySelector(".jet-list");
-const jetList = new PlaneList(source, listElement);
+// const source = new ExternalSource();
+// const listElement = document.querySelector(".jet-list");
+// const jetList = new PlaneList(source, listElement);
 
-jetList.init();
+// jetList.init();
 
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/formdata_event
 document
@@ -37,9 +37,17 @@ document
 
     let flightData = await getFlightDataByModeSCode(modeSCode);
 
-    myMap.addJet(
-      flightData.states[0][0],
-      flightData.states[0][5],
-      flightData.states[0][6]
+    let jet2 = new Jet2(flightData, false);
+
+    myMap.addJetNew(jet2);
+
+    // resource: https://www.techiedelight.com/add-item-html-list-javascript/
+    let node = document.createElement("li");
+    node.appendChild(
+      document.createTextNode(
+        "Callsign: " + jet2.callsign + " Mode S Code: " + jet2.modeSCode
+      )
     );
+
+    document.querySelector("#user-flights-list").appendChild(node);
   });
