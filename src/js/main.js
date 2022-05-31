@@ -27,6 +27,35 @@ myMap.addJet("N1234567", -116.742, 49.0682);
 
 // jetList.init();
 
+function loadSavedFlights() {
+  // let flights = localStorage.getItem("flightList");
+  let flights = [];
+  // Resource: https://stackoverflow.com/questions/3262605/how-to-check-whether-a-storage-item-is-set
+  if (!(localStorage.getItem("flightsList") === null)) {
+    flights = JSON.parse(localStorage.getItem("flightsList"));
+
+    flights.forEach(async modeSCode => {
+      
+    let flightData = await getFlightDataByModeSCode(modeSCode);
+
+    let jet2 = new Jet2(flightData, false);
+
+    myMap.addJetNew(jet2);
+
+    // resource: https://www.techiedelight.com/add-item-html-list-javascript/
+    let node = document.createElement("li");
+    node.appendChild(
+      document.createTextNode(
+        "Callsign: " + jet2.callsign + " Mode S Code: " + jet2.modeSCode
+      )
+    );
+
+    document.querySelector("#user-flights-list").appendChild(node);
+      
+    });
+  }
+}
+
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/formdata_event
 document
   .getElementById("searchForm")
@@ -37,7 +66,7 @@ document
     let flights = [];
     // Resource: https://stackoverflow.com/questions/3262605/how-to-check-whether-a-storage-item-is-set
     if (!(localStorage.getItem("flightsList") === null)) {
-      flights = JSON.parse(localStorage.getItem("flightsList"));  
+      flights = JSON.parse(localStorage.getItem("flightsList"));
     }
 
     let modeSCode = document.getElementById("modeSCode").value;
@@ -64,3 +93,5 @@ document
     // resource: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
     localStorage.setItem("flightsList", JSON.stringify(flights));
   });
+
+loadSavedFlights();
