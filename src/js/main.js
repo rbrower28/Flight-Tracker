@@ -1,25 +1,11 @@
 "use strict";
 
-// This is just a dummy file until someone else in the group starts actually creating a main.js file or the equivalent.
-// If the main file ends up not being this one, then be sure to change line 5 of package.json from
-// "main": "main.js", to instead use the js file you want.
-
 // import ExternalSource from "./externalSource.js";
 // import PlaneList from "./PlaneList.js";
-import { MapRenderer, Jet, Jet2 } from "./mapData.js";
-import getFlightDataByModeSCode from "./externalServices.js";
+import { MapRenderer, BulkJet, Jet } from "./mapData.js";
+import { getFlightDataByModeSCode, getRandomListOfFlights } from "./externalServices.js";
 
 let myMap = new MapRenderer("map", -114.742, 44.0682, 5);
-
-// this uses the new code
-let jet1 = new Jet("N1234567", -114.742, 44.0682, false); // Same info as line below
-// myMap.addJetOld("N1234567", -114.742, 44.0682);
-myMap.addJetNew(jet1);
-// myMap.removeJetNew(jet1);
-
-// This uses the old code
-myMap.addJet("N1234567", -116.742, 49.0682);
-// myMap.removeJet('N1234567');
 
 // const source = new ExternalSource();
 // const listElement = document.querySelector(".jet-list");
@@ -37,15 +23,15 @@ function loadSavedFlights() {
     flights.forEach(async (modeSCode) => {
       let flightData = await getFlightDataByModeSCode(modeSCode);
 
-      let jet2 = new Jet2(flightData, false);
+      let jet = new Jet(flightData, false);
 
-      myMap.addJetNew(jet2);
+      myMap.addJetNew(jet);
 
       // resource: https://www.techiedelight.com/add-item-html-list-javascript/
       let node = document.createElement("li");
       node.appendChild(
         document.createTextNode(
-          "Callsign: " + jet2.callsign + " Mode S Code: " + jet2.modeSCode
+          "Callsign: " + jet.callsign + " Mode S Code: " + jet.modeSCode
         )
       );
 
@@ -71,15 +57,15 @@ document
 
     let flightData = await getFlightDataByModeSCode(modeSCode);
 
-    let jet2 = new Jet2(flightData, false);
+    let jet = new Jet(flightData, false);
 
-    myMap.addJetNew(jet2);
+    myMap.addJetNew(jet);
 
     // resource: https://www.techiedelight.com/add-item-html-list-javascript/
     let node = document.createElement("li");
     node.appendChild(
       document.createTextNode(
-        "Callsign: " + jet2.callsign + " Mode S Code: " + jet2.modeSCode
+        "Callsign: " + jet.callsign + " Mode S Code: " + jet.modeSCode
       )
     );
 
@@ -93,3 +79,25 @@ document
   });
 
 loadSavedFlights();
+
+window.addEventListener("load", async function() {
+  const loader = document.querySelector('#loader')
+  loader.style.display = "block";
+  let flightData = await getRandomListOfFlights();
+  loader.style.display = "none";
+  let length = flightData.states.length;
+  for (let i = 0; i < 15; i++) {
+    let index = Math.floor(Math.random() * length);
+    let jet = new BulkJet(flightData.states[index], true);
+    myMap.addJetNew(jet);
+
+    let node = document.createElement("li");
+    node.appendChild(
+      document.createTextNode(
+        "Callsign: " + jet.callsign + " Mode S Code: " + jet.modeSCode
+      )
+    );
+
+    document.querySelector("#random-flights-list").appendChild(node);
+  }
+});

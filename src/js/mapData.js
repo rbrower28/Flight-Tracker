@@ -1,7 +1,3 @@
-/*global
-    ol
-*/
-
 export class MapRenderer {
   constructor(target, long, lat, zoom) {
     this.target = target;
@@ -33,32 +29,32 @@ export class MapRenderer {
     });
   }
 
-  addJet(jetName, long, lat) {
-    // block below is map stuff, though the long and lat are where we'll put in our jet
-    var iconFeature = new ol.Feature({
-      geometry: new ol.geom.Point(
-        ol.proj.transform([long, lat], "EPSG:4326", "EPSG:3857")
-      ),
-      name: "Null",
-    });
+  // addJet(jetName, long, lat) {
+  //   // block below is map stuff, though the long and lat are where we'll put in our jet
+  //   var iconFeature = new ol.Feature({
+  //     geometry: new ol.geom.Point(
+  //       ol.proj.transform([long, lat], "EPSG:4326", "EPSG:3857")
+  //     ),
+  //     name: "Null",
+  //   });
 
-    // This is where we would change the style of the jet's icon
-    iconFeature.setStyle(this.iconStyle);
+  //   // This is where we would change the style of the jet's icon
+  //   iconFeature.setStyle(this.iconStyle);
 
-    // No clue what this does; I assume it's map stuff
-    var vectorSource = new ol.source.Vector({
-      features: [iconFeature],
-    });
+  //   // No clue what this does; I assume it's map stuff
+  //   var vectorSource = new ol.source.Vector({
+  //     features: [iconFeature],
+  //   });
 
-    // Nor this; I assume it's map stuff
-    var vectorLayer = new ol.layer.Vector({
-      source: vectorSource,
-    });
+  //   // Nor this; I assume it's map stuff
+  //   var vectorLayer = new ol.layer.Vector({
+  //     source: vectorSource,
+  //   });
 
-    // nor even this; I assume it's map stuff
-    vectorLayer.set("name", jetName);
-    this.map.addLayer(vectorLayer);
-  }
+  //   // nor even this; I assume it's map stuff
+  //   vectorLayer.set("name", jetName);
+  //   this.map.addLayer(vectorLayer);
+  // }
 
   addJetNew(jet) {
     // block below is map stuff, though the long and lat are where we'll put in our jet
@@ -93,15 +89,15 @@ export class MapRenderer {
     this.map.addLayer(vectorLayer);
   }
 
-  removeJet(jetName) {
-    var element = null;
-    this.map.getLayers().forEach(function (el) {
-      if (el.get("name") === jetName) {
-        element = el;
-      }
-    });
-    this.map.removeLayer(element);
-  }
+  // removeJet(jetName) {
+  //   var element = null;
+  //   this.map.getLayers().forEach(function (el) {
+  //     if (el.get("name") === jetName) {
+  //       element = el;
+  //     }
+  //   });
+  //   this.map.removeLayer(element);
+  // }
 
   removeJetNew(jet) {
     var element = null;
@@ -114,17 +110,23 @@ export class MapRenderer {
   }
 }
 
-export class Jet {
-  constructor(name, longitude, latitude, userTracked) {
-    this.callsign = name;
-    this.longitude = longitude;
-    this.latitude = latitude;
+// Good for use when creating a large batch of jets through the API
+export class BulkJet {
+  constructor(flightData, userTracked) {
+    this.modeSCode = flightData[0];
+    this.callsign = flightData[1];
+    this.longitude = flightData[5];
+    this.latitude = flightData[6];
+    // uses Geostationary altitude (i.e. based on GPS)
+    this.altitude = flightData[13];
+    this.velocity = flightData[9];
+    this.heading = flightData[10];
     this.userTracked = userTracked;
   }
 }
 
 // This one takes JSON data from the OpenSky API as a parameter for the constructor
-export class Jet2 {
+export class Jet {
   constructor(flightData, userTracked) {
     this.modeSCode = flightData.states[0][0];
     this.callsign = flightData.states[0][1];
