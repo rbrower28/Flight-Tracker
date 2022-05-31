@@ -29,34 +29,7 @@ export class MapRenderer {
     });
   }
 
-  // addJet(jetName, long, lat) {
-  //   // block below is map stuff, though the long and lat are where we'll put in our jet
-  //   var iconFeature = new ol.Feature({
-  //     geometry: new ol.geom.Point(
-  //       ol.proj.transform([long, lat], "EPSG:4326", "EPSG:3857")
-  //     ),
-  //     name: "Null",
-  //   });
-
-  //   // This is where we would change the style of the jet's icon
-  //   iconFeature.setStyle(this.iconStyle);
-
-  //   // No clue what this does; I assume it's map stuff
-  //   var vectorSource = new ol.source.Vector({
-  //     features: [iconFeature],
-  //   });
-
-  //   // Nor this; I assume it's map stuff
-  //   var vectorLayer = new ol.layer.Vector({
-  //     source: vectorSource,
-  //   });
-
-  //   // nor even this; I assume it's map stuff
-  //   vectorLayer.set("name", jetName);
-  //   this.map.addLayer(vectorLayer);
-  // }
-
-  addJetNew(jet) {
+  addJet(jet) {
     // block below is map stuff, though the long and lat are where we'll put in our jet
 
     var iconFeature = new ol.Feature({
@@ -89,17 +62,7 @@ export class MapRenderer {
     this.map.addLayer(vectorLayer);
   }
 
-  // removeJet(jetName) {
-  //   var element = null;
-  //   this.map.getLayers().forEach(function (el) {
-  //     if (el.get("name") === jetName) {
-  //       element = el;
-  //     }
-  //   });
-  //   this.map.removeLayer(element);
-  // }
-
-  removeJetNew(jet) {
+  removeJet(jet) {
     var element = null;
     this.map.getLayers().forEach(function (el) {
       if (el.get("name") === jet.callsign) {

@@ -25,7 +25,7 @@ function loadSavedFlights() {
 
       let jet = new Jet(flightData, false);
 
-      myMap.addJetNew(jet);
+      myMap.addJet(jet);
 
       // resource: https://www.techiedelight.com/add-item-html-list-javascript/
       let node = document.createElement("li");
@@ -59,7 +59,7 @@ document
 
     let jet = new Jet(flightData, false);
 
-    myMap.addJetNew(jet);
+    myMap.addJet(jet);
 
     // resource: https://www.techiedelight.com/add-item-html-list-javascript/
     let node = document.createElement("li");
@@ -80,24 +80,46 @@ document
 
 loadSavedFlights();
 
+// random flights are generated each time the page loads
 window.addEventListener("load", async function() {
-  const loader = document.querySelector('#loader')
+  const loader = document.querySelector('#loader');
+  let randomFlights = [];
+
+  // This needs to be cleared every time the page loads - no sense in letting
+  // flights pile up if they aren't on the map
+  if (!(localStorage.getItem("randomFlights") === null)) {
+    this.localStorage.removeItem("randomFlights");
+  }
+
+  // spinner exists on the page only until the flights have loaded
   loader.style.display = "block";
   let flightData = await getRandomListOfFlights();
   loader.style.display = "none";
+
+  // when generating random numbers, makes sure that we don't exceed the size of
+  // the array
   let length = flightData.states.length;
+
+  // change the limit of i to change the number of flights that will be shown.
+  // in this case, there will be 15 flights loaded
   for (let i = 0; i < 15; i++) {
     let index = Math.floor(Math.random() * length);
     let jet = new BulkJet(flightData.states[index], true);
-    myMap.addJetNew(jet);
+    myMap.addJet(jet);
 
+    // add each jet to the random jet list
     let node = document.createElement("li");
     node.appendChild(
       document.createTextNode(
         "Callsign: " + jet.callsign + " Mode S Code: " + jet.modeSCode
       )
     );
-
     document.querySelector("#random-flights-list").appendChild(node);
+    randomFlights.push(jet.modeSCode);
   }
+
+  // add the list of random jet modeSCodes to localStorage - storing the S Codes
+  // should make things a lot easier for whoever is updating the page every 30
+  // seconds
+  localStorage.setItem("randomFlights", JSON.stringify(randomFlights));
 });
