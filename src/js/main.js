@@ -5,7 +5,7 @@
 // "main": "main.js", to instead use the js file you want.
 
 import ExternalSource from "./externalSource.js";
-import PlaneList from "./PlaneList.js";
+// import PlaneList from "./PlaneList.js";
 import { MapRenderer, Jet, Jet2 } from "./mapData.js";
 import getFlightDataByModeSCode from "./ExternalServices.js";
 
@@ -23,9 +23,9 @@ myMap.addJet("N1234567", -116.742, 49.0682);
 
 const source = new ExternalSource();
 const listElement = document.querySelector(".jet-list");
-const jetList = new PlaneList(source, listElement);
+// const jetList = new PlaneList(source, listElement);
 
-jetList.init();
+// jetList.init();
 
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/formdata_event
 document
@@ -40,4 +40,10 @@ document
     let jet2 = new Jet2(flightData, false);
 
     myMap.addJetNew(jet2);
+
+    // resource: https://www.techiedelight.com/add-item-html-list-javascript/
+    let node = document.createElement("li");
+    node.appendChild(document.createTextNode(jet2.callsign));
+
+    document.querySelector("#user-flights-list").appendChild(node);
   });
