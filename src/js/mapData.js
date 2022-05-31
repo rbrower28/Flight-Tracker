@@ -33,7 +33,6 @@ export class MapRenderer {
     });
   }
 
-
   addJet(jetName, long, lat) {
     // block below is map stuff, though the long and lat are where we'll put in our jet
     var iconFeature = new ol.Feature({
@@ -66,14 +65,18 @@ export class MapRenderer {
 
     var iconFeature = new ol.Feature({
       geometry: new ol.geom.Point(
-        ol.proj.transform([jet.longitude, jet.latitude], "EPSG:4326", "EPSG:3857")
+        ol.proj.transform(
+          [jet.longitude, jet.latitude],
+          "EPSG:4326",
+          "EPSG:3857"
+        )
       ),
       name: "Null",
     });
 
     // This is where we would change the style of the jet's icon
-    iconFeature.setStyle(this.iconStyle); //old 
-    // iconFeature.setStyle(this.iconStyle); //new 
+    iconFeature.setStyle(this.iconStyle); //old
+    // iconFeature.setStyle(this.iconStyle); //new
 
     // No clue what this does; I assume it's map stuff
     var vectorSource = new ol.source.Vector({
@@ -117,7 +120,6 @@ export class Jet {
     this.longitude = longitude;
     this.latitude = latitude;
     this.userTracked = userTracked;
-
   }
 }
 
