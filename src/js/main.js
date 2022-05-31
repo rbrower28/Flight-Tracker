@@ -43,7 +43,7 @@ document
 
     // resource: https://www.techiedelight.com/add-item-html-list-javascript/
     let node = document.createElement("li");
-    node.appendChild(document.createTextNode(jet2.callsign));
+    node.appendChild(document.createTextNode("Callsign: " + jet2.callsign + " Mode S Code: " + jet2.modeSCode));
 
     document.querySelector("#user-flights-list").appendChild(node);
   });
