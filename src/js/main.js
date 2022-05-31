@@ -34,24 +34,22 @@ function loadSavedFlights() {
   if (!(localStorage.getItem("flightsList") === null)) {
     flights = JSON.parse(localStorage.getItem("flightsList"));
 
-    flights.forEach(async modeSCode => {
-      
-    let flightData = await getFlightDataByModeSCode(modeSCode);
+    flights.forEach(async (modeSCode) => {
+      let flightData = await getFlightDataByModeSCode(modeSCode);
 
-    let jet2 = new Jet2(flightData, false);
+      let jet2 = new Jet2(flightData, false);
 
-    myMap.addJetNew(jet2);
+      myMap.addJetNew(jet2);
 
-    // resource: https://www.techiedelight.com/add-item-html-list-javascript/
-    let node = document.createElement("li");
-    node.appendChild(
-      document.createTextNode(
-        "Callsign: " + jet2.callsign + " Mode S Code: " + jet2.modeSCode
-      )
-    );
+      // resource: https://www.techiedelight.com/add-item-html-list-javascript/
+      let node = document.createElement("li");
+      node.appendChild(
+        document.createTextNode(
+          "Callsign: " + jet2.callsign + " Mode S Code: " + jet2.modeSCode
+        )
+      );
 
-    document.querySelector("#user-flights-list").appendChild(node);
-      
+      document.querySelector("#user-flights-list").appendChild(node);
     });
   }
 }
