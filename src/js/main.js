@@ -33,6 +33,13 @@ document
   .addEventListener("submit", async (event) => {
     event.preventDefault();
 
+    // let flights = localStorage.getItem("flightList");
+    let flights = [];
+    // Resource: https://stackoverflow.com/questions/3262605/how-to-check-whether-a-storage-item-is-set
+    if (!(localStorage.getItem("flightsList") === null)) {
+      flights = JSON.parse(localStorage.getItem("flightsList"));  
+    }
+
     let modeSCode = document.getElementById("modeSCode").value;
 
     let flightData = await getFlightDataByModeSCode(modeSCode);
@@ -50,4 +57,10 @@ document
     );
 
     document.querySelector("#user-flights-list").appendChild(node);
+
+    // We push the modeSCode, since we want to get recent data for the plane, not the old data stored in the jet object
+    flights.push(modeSCode);
+
+    // resource: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+    localStorage.setItem("flightsList", JSON.stringify(flights));
   });
