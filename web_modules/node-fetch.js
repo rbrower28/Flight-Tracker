@@ -1,0 +1,1 @@
+var n=function(){if(typeof self!="undefined")return self;if(typeof window!="undefined")return window;if(typeof e!="undefined")return e;throw new Error("unable to locate global object")},e=n(),o=e.fetch.bind(e);const t=e.Headers,r=e.Request,f=e.Response;export{t as Headers,r as Request,f as Response,o as default};
