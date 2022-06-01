@@ -34,7 +34,10 @@ function loadSavedFlights() {
       let li_callsign = document.createElement("p");
       li_callsign.textContent = "Callsign: " + jet.callsign;
       let li_modeScode = document.createElement("p");
-      li_modeScode.textContent = "Mode S Code: " + jet.modeSCode;
+      let code = document.createElement("span");
+      code.textContent = jet.modeSCode
+      li_modeScode.textContent = "Mode S Code: ";
+      li_modeScode.appendChild(code);
       let li_delete = document.createElement("button");
       li_delete.textContent = "Remove";
       li_delete.addEventListener("click", removeSelf);
@@ -58,6 +61,12 @@ document
     // let flights = localStorage.getItem("flightList");
     let flights = [];
 
+    // called in the button - removes element from localstorage and deletes from page
+    function removeSelf(e) {
+      let element = e.target.parentElement;
+      element.remove();
+    }
+
     // Resource: https://stackoverflow.com/questions/3262605/how-to-check-whether-a-storage-item-is-set
     if (!(localStorage.getItem("flightsList") === null)) {
       flights = JSON.parse(localStorage.getItem("flightsList"));
@@ -80,7 +89,13 @@ document
     let li_callsign = document.createElement("p");
     li_callsign.textContent = "Callsign: " + jet.callsign;
     let li_modeScode = document.createElement("p");
-    li_modeScode.textContent = "Mode S Code: " + jet.modeSCode;
+    let code = document.createElement("span");
+    code.textContent = jet.modeSCode
+    li_modeScode.textContent = "Mode S Code: ";
+    li_modeScode.appendChild(code);
+    let li_delete = document.createElement("button");
+    li_delete.textContent = "Remove";
+    li_delete.addEventListener("click", removeSelf);
 
     if (jet.country) { node.appendChild(li_country) };
     if (jet.callsign) { node.appendChild(li_callsign) };
@@ -99,7 +114,7 @@ loadSavedFlights();
 
 // random flights are generated each time the page loads
 window.addEventListener("load", async function() {
-  const loader = document.querySelector('#loader');
+  const loader = document.querySelector("#loader");
   let randomFlights = [];
 
   // This needs to be cleared every time the page loads - no sense in letting
@@ -117,6 +132,19 @@ window.addEventListener("load", async function() {
   // the array
   let length = flightData.states.length;
 
+  function copyToClipBoard(e){
+    let element = e.target.parentElement;
+    let modeSCode = element.children[2].children[0].textContent;
+
+    navigator.clipboard.writeText(modeSCode)
+    .then(() => {
+      alert("Successfully Copied.");
+    })
+    .catch(err => {
+      alert("error: try again.");
+    })
+    }
+
   // change the limit of i to change the number of flights that will be shown.
   // in this case, there will be 15 flights loaded
   for (let i = 0; i < 15; i++) {
@@ -132,11 +160,18 @@ window.addEventListener("load", async function() {
     let li_callsign = document.createElement("p");
     li_callsign.textContent = "Callsign: " + jet.callsign;
     let li_modeScode = document.createElement("p");
-    li_modeScode.textContent = "Mode S Code: " + jet.modeSCode;
+    let code = document.createElement("span");
+    code.textContent = jet.modeSCode
+    li_modeScode.textContent = "Mode S Code: ";
+    li_modeScode.appendChild(code);
+    let li_copy = document.createElement("button");
+    li_copy.textContent = "Copy to clipboard";
+    li_copy.addEventListener("click", copyToClipBoard)
 
     if (jet.country) { node.appendChild(li_country) };
     if (jet.callsign) { node.appendChild(li_callsign) };
     if (jet.modeSCode) { node.appendChild(li_modeScode) };
+    if (jet.modeSCode) { node.appendChild(li_copy) };
 
     document.querySelector("#random-flights-list").appendChild(node);
     randomFlights.push(jet.modeSCode);
