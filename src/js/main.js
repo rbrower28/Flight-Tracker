@@ -29,11 +29,17 @@ function loadSavedFlights() {
 
       // resource: https://www.techiedelight.com/add-item-html-list-javascript/
       let node = document.createElement("li");
-      node.appendChild(
-        document.createTextNode(
-          "Callsign: " + jet.callsign + " Mode S Code: " + jet.modeSCode
-        )
-      );
+      
+      let li_country = document.createElement("h4");
+      li_country.textContent = jet.country;
+      let li_callsign = document.createElement("p");
+      li_callsign.textContent = "Callsign: " + jet.callsign;
+      let li_modeScode = document.createElement("p");
+      li_modeScode.textContent = "Mode S Code: " + jet.modeSCode;
+
+      if (jet.country) { node.appendChild(li_country) };
+      if (jet.callsign) { node.appendChild(li_callsign) };
+      if (jet.modeSCode) { node.appendChild(li_modeScode) };
 
       document.querySelector("#user-flights-list").appendChild(node);
     });
@@ -54,6 +60,7 @@ document
     }
 
     let modeSCode = document.getElementById("modeSCode").value;
+    document.getElementById("modeSCode").textContent = "";
 
     let flightData = await getFlightDataByModeSCode(modeSCode);
 
@@ -63,11 +70,22 @@ document
 
     // resource: https://www.techiedelight.com/add-item-html-list-javascript/
     let node = document.createElement("li");
-    node.appendChild(
-      document.createTextNode(
-        "Callsign: " + jet.callsign + " Mode S Code: " + jet.modeSCode
-      )
-    );
+
+    let li_country = document.createElement("h4");
+    li_country.textContent = jet.country;
+    let li_callsign = document.createElement("p");
+    li_callsign.textContent = "Callsign: " + jet.callsign;
+    let li_modeScode = document.createElement("p");
+    li_modeScode.textContent = "Mode S Code: " + jet.modeSCode;
+
+    if (jet.country) { node.appendChild(li_country) };
+    if (jet.callsign) { node.appendChild(li_callsign) };
+    if (jet.modeSCode) { node.appendChild(li_modeScode) };
+    // node.appendChild(
+    //   document.createTextNode(
+    //     "Callsign: " + jet.callsign + " Mode S Code: " + jet.modeSCode
+    //   )
+    // );
 
     document.querySelector("#user-flights-list").appendChild(node);
 
@@ -109,11 +127,18 @@ window.addEventListener("load", async function() {
 
     // add each jet to the random jet list
     let node = document.createElement("li");
-    node.appendChild(
-      document.createTextNode(
-        "Callsign: " + jet.callsign + " Mode S Code: " + jet.modeSCode
-      )
-    );
+
+    let li_country = document.createElement("h4");
+    li_country.textContent = jet.country;
+    let li_callsign = document.createElement("p");
+    li_callsign.textContent = "Callsign: " + jet.callsign;
+    let li_modeScode = document.createElement("p");
+    li_modeScode.textContent = "Mode S Code: " + jet.modeSCode;
+
+    if (jet.country) { node.appendChild(li_country) };
+    if (jet.callsign) { node.appendChild(li_callsign) };
+    if (jet.modeSCode) { node.appendChild(li_modeScode) };
+
     document.querySelector("#random-flights-list").appendChild(node);
     randomFlights.push(jet.modeSCode);
   }

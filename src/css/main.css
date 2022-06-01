@@ -2,6 +2,10 @@
 
 /* ========= General Styling ========= */
 
+html {
+  background-color: whitesmoke;
+}
+
 header {
   background-color: rgb(202, 223, 239);
   display: flex;
@@ -12,6 +16,7 @@ header {
 
 footer {
   background-color: rgb(202, 223, 239);
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,8 +24,9 @@ footer {
 }
 
 main {
-  background-color: whitesmoke;
   padding: 2rem;
+  max-width: 80rem;
+  margin: auto;
 }
 
 h1,
@@ -30,6 +36,13 @@ h4,
 h5,
 h6 {
   font-family: "Merriweather", serif;
+}
+
+h2 {
+  border-bottom: 3px solid rgb(112, 170, 214);
+  padding: .5rem;
+  max-width: 250px;
+  margin: 1rem auto;
 }
 
 p,
@@ -94,6 +107,57 @@ section {
   text-align: center;
 }
 
+/* ========= Form Styling ========= */
+
+.form-box {
+  background-color: rgb(202, 223, 239);
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  margin: auto;
+}
+
+.form-box p {
+  width: 70%;
+  margin: .5rem;
+  line-height: 130%;
+}
+
+.form-box p a {
+  color: rgb(122, 122, 122);
+}
+
+form {
+  margin: 1rem 1rem 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+form input {
+  padding: .3rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #999;
+  max-width: 80px;
+}
+
+form button {
+  padding: .5rem 1rem;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+form button:hover {
+  transform: scale(1.2);
+}
+
+
 /* ========= Map Styling ========= */
 
 .map-box {
@@ -104,15 +168,9 @@ section {
   padding: 1rem;
   min-height: 30rem;
   height: 400px;
-  /* border: 1px dashed #999; */
 }
 
 /* ========= Jet List Styling ========= */
-
-.jets,
-.flights {
-  border: 1px dashed #999;
-}
 
 .jets ul,
 .flights ul {
@@ -142,6 +200,15 @@ li.jet {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+}
+
+.random-jets {
+  text-align: center;
+}
+
+#random-flights-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));;
 }
 
 /* ========= Jet Information Styling ========= */
