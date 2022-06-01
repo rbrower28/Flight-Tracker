@@ -13,6 +13,10 @@ function loadSavedFlights() {
 
   function removeSelf(e) {
     let element = e.target.parentElement;
+    let modeSCode = element.children[2].children[0].textContent;
+    let curr_flights = JSON.parse(localStorage.getItem("flightsList"));
+    curr_flights.splice(flights.indexOf(modeSCode), 1);
+    localStorage.setItem("flightsList", JSON.stringify(curr_flights));
     element.remove();
   }
 
@@ -65,6 +69,10 @@ document
     // called in the button - removes element from localstorage and deletes from page
     function removeSelf(e) {
       let element = e.target.parentElement;
+      let mcode = element.children[2].children[0].textContent;
+      let curr_flights = JSON.parse(localStorage.getItem("flightsList"));
+      curr_flights.splice(flights.indexOf(mcode), 1);
+      localStorage.setItem("flightsList", JSON.stringify(curr_flights));
       element.remove();
     }
 
