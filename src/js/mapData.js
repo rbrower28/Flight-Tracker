@@ -78,6 +78,7 @@ export class BulkJet {
   constructor(flightData, userTracked) {
     this.modeSCode = flightData[0];
     this.callsign = flightData[1];
+    this.country = flightData[2];
     this.longitude = flightData[5];
     this.latitude = flightData[6];
     // uses Geostationary altitude (i.e. based on GPS)
@@ -93,6 +94,7 @@ export class Jet {
   constructor(flightData, userTracked) {
     this.modeSCode = flightData.states[0][0];
     this.callsign = flightData.states[0][1];
+    this.country = flightData.states[0][2];
     this.longitude = flightData.states[0][5];
     this.latitude = flightData.states[0][6];
     // uses Geostationary altitude (i.e. based on GPS)
