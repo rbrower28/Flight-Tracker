@@ -20,7 +20,7 @@
           <p></p></a>
       </li>
     </template>
-    <!-- -->
+    <!-- End Template -->
   </head>
   <body>
     <header>
@@ -31,22 +31,27 @@
         </a>
       </div>
       <div id="header-links">
-        <a href="#map">Map</a>
-        <a href="#jets">Jets</a>
+        <a href="#map-box">Map</a>
+        <a href="#jets">Flights</a>
+        <a href="#random">Random</a>
       </div>
     </header>
 
     <main>
-      <h1>Search for a flight:</h1>
-      <form id="searchForm">
-        <label>Mode S Code:<br><input type="text" name="modeSCode" id="modeSCode"></label><br>
-        <button id="searchButton">Search</button>
-      </form>
+      <div class="form-box">
+        <h1>Search for a flight:</h1>
+        <p>Enter a plane's unique <strong>Mode S Code</strong> to track it's location across the world.</p>
+        <p>Under the <a href="#random">Random Flights</a> section you will find a randomly-generated list of flights with codes that can be tracked and saved.</p>
+        <p>Flights entered in this form will automatically be saved for future use in the <a href="#jets">Your Flights</a> section of this page.</p>
+        <form id="searchForm">
+          <label>Mode S Code:<br><input type="text" name="modeSCode" id="modeSCode" maxlength="6"></label><br>
+          <button id="searchButton">Track</button>
+        </form>
+      </div>
 
       <div class="main-content">
         <section class="map-box" id="map-box">
           <h2>See All Flights</h2>
-
           <div class="map" id="map"></div>
         </section>
 
@@ -55,14 +60,17 @@
           <div class="jets">
             <ul id="user-flights-list"></ul>
           </div>
-          <h2>Random Flights</h2>
-          <div class="jets">
-            <ul id="random-flights-list"></ul>
-          </div>
-          <div class="loader" id="loader"></div>
         </section>
       </div>
-    </main>
+
+      <div class="random-jets" id="random">
+        <h2>Random Flights</h2>
+        <div class="jets">
+          <ul id="random-flights-list"></ul>
+        </div>
+        <div class="loader" id="loader"></div>
+      
+    </div>
 
     <footer>
       <p>Made in 2022</p>
@@ -88,4 +96,4 @@
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
   
 
-</body></html>
+</main></body></html>
