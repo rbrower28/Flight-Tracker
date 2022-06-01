@@ -40,7 +40,7 @@ h6 {
 
 h2 {
   border-bottom: 3px solid rgb(112, 170, 214);
-  padding: .5rem;
+  padding: 0.5rem;
   max-width: 250px;
   margin: 1rem auto;
 }
@@ -122,7 +122,7 @@ section {
 
 .form-box p {
   width: 70%;
-  margin: .5rem;
+  margin: 0.5rem;
   line-height: 130%;
 }
 
@@ -140,14 +140,14 @@ form {
 }
 
 form input {
-  padding: .3rem 1rem;
+  padding: 0.3rem 1rem;
   border-radius: 10px;
   border: 1px solid #999;
   max-width: 80px;
 }
 
 form button {
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   background-color: whitesmoke;
   border-radius: 10px;
   cursor: pointer;
@@ -156,7 +156,6 @@ form button {
 form button:hover {
   transform: scale(1.2);
 }
-
 
 /* ========= Map Styling ========= */
 
@@ -208,7 +207,7 @@ li.jet {
 
 #random-flights-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 /* ========= Jet Information Styling ========= */

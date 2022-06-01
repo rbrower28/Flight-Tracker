@@ -1,3 +1,5 @@
+/*global ol*/
+
 export class MapRenderer {
   constructor(target, long, lat, zoom) {
     this.target = target;

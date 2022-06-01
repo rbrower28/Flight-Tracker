@@ -1,33 +1,41 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flight Tracker ✈️</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/css/ol.css" type="text/css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/medium.css">
-    <link rel="stylesheet" href="css/small.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/css/ol.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/medium.css" />
+    <link rel="stylesheet" href="css/small.css" />
     <!-- Template -->
     <template id="person-data">
       <li class="jet">
-        <img src="" alt="Image of ">
+        <img src="" alt="Image of " />
         <a href="jet-details/index.html?jet=">
           <h4 class="item-name"></h4>
           <p class="item-make"></p>
           <p></p>
           <p class="item-id"></p>
-          <p></p></a>
+          <p></p
+        ></a>
       </li>
     </template>
     <!-- End Template -->
   </head>
+
   <body>
     <header>
       <div id="logo-box">
         <a href="index.html">
           <h3>Flight Tracker</h3>
-          <img src="images/jet-logo.png" alt="A logo of a plane">
+          <img src="images/jet-logo.png" alt="A logo of a plane" />
         </a>
       </div>
       <div id="header-links">
@@ -40,11 +48,27 @@
     <main>
       <div class="form-box">
         <h1>Search for a flight:</h1>
-        <p>Enter a plane's unique <strong>Mode S Code</strong> to track it's location across the world.</p>
-        <p>Under the <a href="#random">Random Flights</a> section you will find a randomly-generated list of flights with codes that can be tracked and saved.</p>
-        <p>Flights entered in this form will automatically be saved for future use in the <a href="#jets">Your Flights</a> section of this page.</p>
+        <p>
+          Enter a plane's unique <strong>Mode S Code</strong> to track it's
+          location across the world.
+        </p>
+        <p>
+          Under the <a href="#random">Random Flights</a> section you will find a
+          randomly-generated list of flights with codes that can be tracked and
+          saved.
+        </p>
+        <p>
+          Flights entered in this form will automatically be saved for future
+          use in the <a href="#jets">Your Flights</a> section of this page.
+        </p>
         <form id="searchForm">
-          <label>Mode S Code:<br><input type="text" name="modeSCode" id="modeSCode" maxlength="6"></label><br>
+          <label
+            >Mode S Code:<br /><input
+              type="text"
+              name="modeSCode"
+              id="modeSCode"
+              maxlength="6" /></label
+          ><br />
           <button id="searchButton">Track</button>
         </form>
       </div>
@@ -69,13 +93,16 @@
           <ul id="random-flights-list"></ul>
         </div>
         <div class="loader" id="loader"></div>
-      
-    </div>
+      </div>
+    </main>
 
     <footer>
       <p>Made in 2022</p>
       <p>
-        Special thanks to the OpenSky Network (<a href="https://opensky-network.org">https://opensky-network.org</a>) who provided the OpenSky Network API integral to this project.
+        Special thanks to the OpenSky Network (<a
+          href="https://opensky-network.org"
+          >https://opensky-network.org</a
+        >) who provided the OpenSky Network API integral to this project.
       </p>
       <p>
         Matthias Schäfer, Martin Strohmeier, Vincent Lenders, Ivan Martinovic
@@ -89,11 +116,10 @@
         Information Processing in Sensor Networks (IPSN), pages 83-94, April
         2014.
       </p>
-      <br>
+      <br />
     </footer>
 
     <script type="module" src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
-  
-
-</main></body></html>
+  </body>
+</html>
