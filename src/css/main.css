@@ -2,11 +2,18 @@
 
 /* ========= General Styling ========= */
 
-header,
-footer {
+header {
   background-color: rgb(202, 223, 239);
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+footer {
+  background-color: rgb(202, 223, 239);
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
