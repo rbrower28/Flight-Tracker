@@ -10,6 +10,12 @@ function loadSavedFlights() {
   // let flights = localStorage.getItem("flightList");
   let flights = [];
   // Resource: https://stackoverflow.com/questions/3262605/how-to-check-whether-a-storage-item-is-set
+
+  function removeSelf(e) {
+    let element = e.target.parentElement;
+    element.remove();
+  }
+
   if (!(localStorage.getItem("flightsList") === null)) {
     flights = JSON.parse(localStorage.getItem("flightsList"));
 
@@ -29,10 +35,14 @@ function loadSavedFlights() {
       li_callsign.textContent = "Callsign: " + jet.callsign;
       let li_modeScode = document.createElement("p");
       li_modeScode.textContent = "Mode S Code: " + jet.modeSCode;
+      let li_delete = document.createElement("button");
+      li_delete.textContent = "Remove";
+      li_delete.addEventListener("click", removeSelf);
 
       if (jet.country) { node.appendChild(li_country) };
       if (jet.callsign) { node.appendChild(li_callsign) };
       if (jet.modeSCode) { node.appendChild(li_modeScode) };
+      if (jet.modeSCode) { node.appendChild(li_delete) };
 
       document.querySelector("#user-flights-list").appendChild(node);
     });
@@ -47,6 +57,7 @@ document
 
     // let flights = localStorage.getItem("flightList");
     let flights = [];
+
     // Resource: https://stackoverflow.com/questions/3262605/how-to-check-whether-a-storage-item-is-set
     if (!(localStorage.getItem("flightsList") === null)) {
       flights = JSON.parse(localStorage.getItem("flightsList"));
@@ -74,11 +85,6 @@ document
     if (jet.country) { node.appendChild(li_country) };
     if (jet.callsign) { node.appendChild(li_callsign) };
     if (jet.modeSCode) { node.appendChild(li_modeScode) };
-    // node.appendChild(
-    //   document.createTextNode(
-    //     "Callsign: " + jet.callsign + " Mode S Code: " + jet.modeSCode
-    //   )
-    // );
 
     document.querySelector("#user-flights-list").appendChild(node);
 
