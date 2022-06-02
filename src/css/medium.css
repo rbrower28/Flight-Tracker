@@ -8,4 +8,13 @@
     width: 100%;
     max-width: 40rem;
   }
+
+  .form-box {
+    max-width: 35rem;
+  }
+
+  .form-box div {
+    flex-direction: column;
+    text-align: center;
+  }
 }

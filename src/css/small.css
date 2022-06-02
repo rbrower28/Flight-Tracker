@@ -8,11 +8,6 @@
     padding: 1rem;
   }
 
-  .form-box div {
-    display: flex;
-    flex-direction: column;
-  }
-
   #header-links {
     margin: 0;
   }

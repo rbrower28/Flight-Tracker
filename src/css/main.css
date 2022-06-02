@@ -123,6 +123,7 @@ section {
 .form-box div {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 #modeSCode {
@@ -133,7 +134,7 @@ section {
 .form-box p {
   width: 70%;
   margin: 0.5rem;
-  line-height: 130%;
+  line-height: 150%;
 }
 
 .form-box p a {
