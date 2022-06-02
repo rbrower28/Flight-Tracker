@@ -6,7 +6,7 @@ import {
   getRandomListOfFlights,
 } from "./externalServices.js";
 
-let myMap = new MapRenderer("map", -114.742, 44.0682, 5);
+let myMap = new MapRenderer("map", 10, 0, 1);
 
 function loadSavedFlights() {
   // let flights = localStorage.getItem("flightList");
