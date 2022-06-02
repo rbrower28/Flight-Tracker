@@ -1,3 +1,5 @@
+/*global ol*/
+
 export class MapRenderer {
   constructor(target, long, lat, zoom) {
     this.target = target;
@@ -10,7 +12,7 @@ export class MapRenderer {
         anchor: [0.5, 46],
         anchorXUnits: "fraction",
         anchorYUnits: "pixels",
-        src: "../images/jet-logo.png",
+        src: "images/jet-logo.png",
         scale: 0.0625,
       }),
     });
