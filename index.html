@@ -22,6 +22,7 @@
     </template>
     <!-- End Template -->
   </head>
+
   <body>
     <header>
       <div id="logo-box">
@@ -40,13 +41,23 @@
     <main>
       <div class="form-box">
         <h1>Search for a flight:</h1>
-        <p>Enter a plane's unique <strong>Mode S Code</strong> to track it's location across the world.</p>
-        <p>Under the <a href="#random">Random Flights</a> section you will find a randomly-generated list of flights with codes that can be tracked and saved.</p>
-        <p>Flights entered in this form will automatically be saved for future use in the <a href="#jets">Your Flights</a> section of this page.</p>
-        <form id="searchForm">
-          <label>Mode S Code:<br><input type="text" name="modeSCode" id="modeSCode" maxlength="6"></label><br>
-          <button id="searchButton">Track</button>
-        </form>
+        <div>
+
+          <div>
+            
+            <p>Enter a plane's unique <strong>Mode S Code</strong> to track it's location across the world.</p>
+            <p>Under the <a href="#random">Random Flights</a> section you will find a randomly-generated list of flights with codes that can be tracked and saved.</p>
+            <p>Flights entered in this form will automatically be saved for future use in the <a href="#jets">Your Flights</a> section of this page.</p>
+          </div>
+        </div>
+          <div>
+            <form id="searchForm">
+              <label>Mode S Code:<br>
+              <input type="text" name="modeSCode" id="modeSCode" maxlength="6">
+              </label><br>
+              <button id="searchButton">Track</button>
+            </form>
+          </div>
       </div>
 
       <div class="main-content">
@@ -69,8 +80,8 @@
           <ul id="random-flights-list"></ul>
         </div>
         <div class="loader" id="loader"></div>
-      
-    </div>
+      </div>
+    </main>
 
     <footer>
       <p>Made in 2022</p>
@@ -96,4 +107,4 @@
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
   
 
-</main></body></html>
+</body></html>
