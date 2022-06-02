@@ -9,7 +9,7 @@
 // Resource for Mocha: https://mochajs.org/
 // Resource for assert: https://nodejs.org/api/assert.html
 import assert from "node:assert/strict";
-import getFlightDataByModeSCode from "../src/js/externalServices.js";
+import { getFlightDataByModeSCode } from "../src/js/externalServices.js";
 
 // Look up flights for tests here: https://opensky-network.org/network/explorer
 // OpenSky API Response Guide (ie what is what in the response): https://opensky-network.org/forum/application-programming-interface/97-opensky-api-response-states-array

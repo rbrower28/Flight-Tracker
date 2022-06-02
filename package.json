@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "Boilerplate for WDD 330 celebrity-tracker project",
   "main": "main.js",
+  "homepage": "https://{pages-endpoint}/{repo}",
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
     "lint": "eslint *.cjs src/js/*.js test/*.js",
     "format": "prettier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css}\"",
     "test": "mocha",
-    "babel": "babel src -d dist"
+    "babel": "babel src -d dist",
+    "deploy": "npm run build && gh-pages -d build"
   },
   "type": "module",
   "contributors": [
@@ -39,6 +41,7 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.26.0",
+    "gh-pages": "^4.0.0",
     "mocha": "^10.0.0",
     "prettier": "^2.1.2",
     "snowpack": "^2.18.0"
