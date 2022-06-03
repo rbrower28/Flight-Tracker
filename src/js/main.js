@@ -13,13 +13,17 @@ function loadSavedFlights() {
   let flights = [];
   // Resource: https://stackoverflow.com/questions/3262605/how-to-check-whether-a-storage-item-is-set
 
+  // removes the list item and deletes code from storage
   function removeSelf(e) {
     let element = e.target.parentElement;
+    // this retrieves the Mode S Code from the element
     let modeSCode = element.children[2].children[0].textContent;
     let curr_flights = JSON.parse(localStorage.getItem("flightsList"));
+    // removes the Mode S Code from the list in local storage
     curr_flights.splice(flights.indexOf(modeSCode), 1);
+    // resets localStorage without the code
     localStorage.setItem("flightsList", JSON.stringify(curr_flights));
-    element.remove();
+    element.remove(); // deletes element
   }
 
   if (!(localStorage.getItem("flightsList") === null)) {
@@ -49,6 +53,7 @@ function loadSavedFlights() {
       li_delete.textContent = "Remove";
       li_delete.addEventListener("click", removeSelf);
 
+      // only appends data to the html element if the data exists
       if (jet.country) {
         node.appendChild(li_country);
       }
@@ -77,6 +82,7 @@ document
     let flights = [];
 
     // called in the button - removes element from localstorage and deletes from page
+    // more exact documentation on lines 16-26
     function removeSelf(e) {
       let element = e.target.parentElement;
       let mcode = element.children[2].children[0].textContent;
@@ -121,6 +127,7 @@ document
       li_delete.textContent = "Remove";
       li_delete.addEventListener("click", removeSelf);
 
+      // only appends data to the html element if the data exists
       if (jet.country) {
         node.appendChild(li_country);
       }
@@ -204,6 +211,7 @@ window.addEventListener("load", async function () {
     li_copy.textContent = "Copy to clipboard";
     li_copy.addEventListener("click", copyToClipBoard);
 
+    // only appends data to the html element if the data exists
     if (jet.country) {
       node.appendChild(li_country);
     }
